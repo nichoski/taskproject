@@ -1,0 +1,7 @@
+<h1>Tasks</h1>
+<a href="/add">Add task</a>
+<ul>
+    {% for task in object_list %}
+        <li><a href="/task/{{ task.id }}">{{ task.description }}</a></li>
+    {% endfor %}
+</ul>

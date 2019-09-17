@@ -1,0 +1,28 @@
+<h1>Task {{ task.id }}</h1>
+
+<h2>Details</h2>
+<a href="{{ request.path }}/update">Edit Task</a>
+<dl>
+    <dt>Status</dt>
+    <dd>{{ task.status }}</dd>
+
+    <dt>Description</dt>
+    <dd>{{ task.description }}</dd>
+
+    <dt>Assigned Users</dt>
+    <dd>
+        {{ task.users.all|join:', ' }}
+    </dd>
+</dl>
+
+<h2>Comments</h2>
+<dl>
+    {% for comment in task.comment_set.all %}
+        <dt>{{ comment.user }}</dt>
+        <dd>
+            {{ comment.comment }}
+            <a href="/comment/{{ comment.id }}/delete">Delete</a>
+        </dd>
+    {% endfor %}
+    <a href="{{ request.path }}/add-comment">Add Comment</a>
+</dl>
