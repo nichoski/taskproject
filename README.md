@@ -1,1 +1,1 @@
-A test project in Python/Django.
+A simple tasks scheduling system in Python/Django.
